@@ -60,7 +60,7 @@ namespace XTC.Text
             MergeFromJSON(ta.text, _overwrite);
         }
 
-        public static string Translate(string _record, bool _overwrite)
+        public static string Translate(string _record)
         {
             if (!records.ContainsKey(_record))
                 return _record;
