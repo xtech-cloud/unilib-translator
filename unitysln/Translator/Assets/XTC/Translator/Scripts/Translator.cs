@@ -13,7 +13,8 @@ namespace XTC.Text
     {
         public static Dictionary<string, Dictionary<string, string>> records = new Dictionary<string, Dictionary<string, string>>();
 
-        public static string language = "en_US";
+        public static string activeLanguage = "en_US";
+        public static string defaultLanguage = "en_US";
 
         public static void MergeFromJSON(string _json, bool _overwrite)
         {
@@ -66,10 +67,13 @@ namespace XTC.Text
                 return _record;
 
             Dictionary<string, string> values = records[_record];
-            if (!values.ContainsKey(language))
-                return _record;
+            if(values.ContainsKey(activeLanguage))
+                return values[activeLanguage];
 
-            return values[language];
+            if (values.ContainsKey(defaultLanguage))
+                return values[defaultLanguage];
+
+            return _record;
         }
     }//class
 }//namespace

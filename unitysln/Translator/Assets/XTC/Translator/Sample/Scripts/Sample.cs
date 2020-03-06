@@ -7,9 +7,10 @@ public class Sample : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Translator.defaultLanguage = "en_US";
 		Translator.MergeFromResource("test", true);
 		Debug.Log(Translator.Translate("0001"));
-		Translator.language = "zh_CN";
+		Translator.activeLanguage = "zh_CN";
 		Debug.Log(Translator.Translate("0001"));
 	}
 	
